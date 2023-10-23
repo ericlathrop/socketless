@@ -48,7 +48,7 @@ Done, you're now running a server that is ready to accept client connections. Bu
 
 Without an argument, `createServer` will create a plain HTTP server to negotiate websocket "upgrade requests" (since all websocket connections start life as an HTTP call).
 
-By default, that web server will not serve any sort of HTTP traffic outside of websocket upgrade calls, but you can assigned route handlers in order to serve regular content, using `.addroute(...)`:
+By default, that web server will not serve any sort of HTTP traffic outside of websocket upgrade calls, but you can assign route handlers in order to serve regular content, using `.addroute(...)`:
 
 ```js
 import { linkClasses } from "socketless";
@@ -105,7 +105,7 @@ webserver.listen(0, () => {
 });
 ```
 
-Note that unlike most frameworked, `addRoute` is not tied to a specific HTTP verb. You can examine `req.method` if you need handling based on GET/POST/etc.
+Note that unlike most frameworks, `addRoute` is not tied to a specific HTTP verb. You can examine `req.method` if you need handling based on GET/POST/etc.
 
 Also note that if you want to transport values across middleware functions, there is no predefined way to do so. However, [much like in Express](https://expressjs.com/en/guide/writing-middleware.html), you should be able to just tack your values onto the `req` object, provided the values you're storing don't conflict with the handful of predefined [http.ClientRequest](https://nodejs.org/api/https.html) properties:
 
